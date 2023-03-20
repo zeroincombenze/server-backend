@@ -1,17 +1,22 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* base_global_discount
+#	* base_global_discount
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: base_global_discount
+#: model:ir.model.fields,help:base_global_discount.field_global_discount__discount_base
+msgid "Amount that will be discounted."
+msgstr ""
 
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__company_id
@@ -39,6 +44,11 @@ msgid "Discount"
 msgstr ""
 
 #. module: base_global_discount
+#: model:ir.model.fields,field_description:base_global_discount.field_global_discount__discount_base
+msgid "Discount Base"
+msgstr ""
+
+#. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__name
 msgid "Discount Name"
 msgstr ""
@@ -50,7 +60,6 @@ msgstr ""
 
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__display_name
-#: model:ir.model.fields,field_description:base_global_discount.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -74,13 +83,11 @@ msgstr ""
 
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__id
-#: model:ir.model.fields,field_description:base_global_discount.field_res_partner__id
 msgid "ID"
 msgstr ""
 
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount____last_update
-#: model:ir.model.fields,field_description:base_global_discount.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -109,11 +116,11 @@ msgstr ""
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_res_partner__supplier_global_discount_ids_readonly
 #: model:ir.model.fields,field_description:base_global_discount.field_res_users__supplier_global_discount_ids_readonly
-msgid "Purchase Global Discounts (readonly)"
+msgid "Purchase Global Discounts (Readonly)"
 msgstr ""
 
 #. module: base_global_discount
-#: model:ir.model.fields.selection,name:base_global_discount.selection__global_discount__discount_scope__purchase
+#: selection:global.discount,discount_scope:0
 msgid "Purchases"
 msgstr ""
 
@@ -127,11 +134,11 @@ msgstr ""
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_res_partner__customer_global_discount_ids_readonly
 #: model:ir.model.fields,field_description:base_global_discount.field_res_users__customer_global_discount_ids_readonly
-msgid "Sale Global Discounts (readonly)"
+msgid "Sale Global Discounts (Readonly)"
 msgstr ""
 
 #. module: base_global_discount
-#: model:ir.model.fields.selection,name:base_global_discount.selection__global_discount__discount_scope__sale
+#: selection:global.discount,discount_scope:0
 msgid "Sales"
 msgstr ""
 
@@ -139,3 +146,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__sequence
 msgid "Sequence"
 msgstr ""
+
+#. module: base_global_discount
+#: selection:global.discount,discount_base:0
+msgid "Subtotal"
+msgstr ""
+
+#. module: base_global_discount
+#: selection:global.discount,discount_base:0
+msgid "Total"
+msgstr ""
+

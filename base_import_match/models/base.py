@@ -19,10 +19,10 @@ class Base(models.AbstractModel):
         if self.env["base_import.match"]._usable_rules(self._name, fields):
             newdata = list()
             # Data conversion to ORM format
-            import_fields = list(map(models.fix_import_export_id_paths, fields))
+            import_fields = list(
+                map(models.fix_import_export_id_paths, fields))
             converted_data = self._convert_records(
-                self._extract_records(import_fields, data)
-            )
+                self._extract_records(import_fields, data))
             # Mock Odoo to believe the user is importing the ID field
             if "id" not in fields:
                 fields.append("id")
@@ -35,19 +35,20 @@ class Base(models.AbstractModel):
                 if xmlid:
                     # Skip rows with ID, they do not need all this
                     row["id"] = xmlid
-                    newdata.append(tuple(row[f] for f in clean_fields))
                     continue
                 elif dbid:
                     # Find the xmlid for this dbid
                     match = self.browse(dbid)
                 else:
                     # Store records that match a combination
-                    match = self.env["base_import.match"]._match_find(self, record, row)
+                    match = self.env["base_import.match"]._match_find(
+                        self, record, row)
                 # Give a valid XMLID to this row if a match was found
                 # To generate externals IDS.
                 match.export_data(fields)
                 ext_id = match.get_external_id()
-                row["id"] = ext_id[match.id] if match else row.get("id", "")
+                row["id"] = (ext_id[match.id]
+                             if match else row.get("id", u""))
                 # Store the modified row, in the same order as fields
                 newdata.append(tuple(row[f] for f in clean_fields))
             # We will import the patched data to get updates on matches

@@ -2,13 +2,12 @@
 
 {
     "name": "User profiles",
-    "version": "14.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Tools",
     "author": "Akretion, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/server-backend",
     "depends": ["base_user_role", "web"],
-    "post_init_hook": "post_init_hook",
     "data": [
         "data/data.xml",
         "security/ir.model.access.csv",

@@ -5,10 +5,7 @@ from odoo import fields, models
 class ResUsersRole(models.Model):
     _inherit = "res.users.role"
 
-    profile_id = fields.Many2one(
-        "res.users.profile",
-        "Profile",
-    )
+    profile_id = fields.Many2one("res.users.profile", "Profile",)
 
 
 class ResUsersRoleLine(models.Model):

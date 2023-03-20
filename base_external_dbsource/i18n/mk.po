@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 
 #. module: base_external_dbsource
-#: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
+#: code:addons/base_external_dbsource/models/base_external_dbsource.py:352
 #, python-format
 msgid ""
 "\"%s\" method not found, check that all assets are installed for the %s "
@@ -60,6 +60,11 @@ msgid "Client Key"
 msgstr ""
 
 #. module: base_external_dbsource
+#: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__company_id
+msgid "Company"
+msgstr ""
+
+#. module: base_external_dbsource
 #: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__conn_string_full
 msgid "Conn String Full"
 msgstr ""
@@ -71,7 +76,7 @@ msgid "Connection string"
 msgstr ""
 
 #. module: base_external_dbsource
-#: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
+#: code:addons/base_external_dbsource/models/base_external_dbsource.py:193
 #, python-format
 msgid ""
 "Connection test failed:\n"
@@ -80,7 +85,7 @@ msgid ""
 msgstr ""
 
 #. module: base_external_dbsource
-#: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
+#: code:addons/base_external_dbsource/models/base_external_dbsource.py:197
 #, python-format
 msgid ""
 "Connection test succeeded:\n"
@@ -161,6 +166,16 @@ msgid "Last Updated on"
 msgstr "Последно ажурирање на"
 
 #. module: base_external_dbsource
+#: selection:base.external.dbsource,connector:0
+msgid "Microsoft SQL Server"
+msgstr ""
+
+#. module: base_external_dbsource
+#: selection:base.external.dbsource,connector:0
+msgid "MySQL"
+msgstr ""
+
+#. module: base_external_dbsource
 #: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__password
 msgid "Password"
 msgstr ""
@@ -176,8 +191,13 @@ msgid "Please check the tooltip for connection string examples"
 msgstr ""
 
 #. module: base_external_dbsource
-#: model:ir.model.fields.selection,name:base_external_dbsource.selection__base_external_dbsource__connector__postgresql
+#: selection:base.external.dbsource,connector:0
 msgid "PostgreSQL"
+msgstr ""
+
+#. module: base_external_dbsource
+#: selection:base.external.dbsource,connector:0
+msgid "SQLite"
 msgstr ""
 
 #. module: base_external_dbsource
@@ -186,7 +206,7 @@ msgid "Test Connection"
 msgstr ""
 
 #. module: base_external_dbsource
-#: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
+#: code:addons/base_external_dbsource/models/base_external_dbsource.py:164
 #, python-format
 msgid "query is a required argument"
 msgstr ""

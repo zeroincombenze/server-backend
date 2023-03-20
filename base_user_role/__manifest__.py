@@ -1,24 +1,26 @@
 # Copyright 2014 ABF OSIELL <http://osiell.com>
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
-
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     "name": "User roles",
-    "version": "14.0.2.5.1",
+    "version": "12.0.2.1.2",
     "category": "Tools",
     "author": "ABF OSIELL, Odoo Community Association (OCA)",
-    "license": "LGPL-3",
-    "development_status": "Production/Stable",
-    "maintainers": ["sebalix", "jcdrubay", "novawish"],
+    "license": "AGPL-3",
+    "maintainers": ["ABF OSIELL", "jcdrubay"],
     "website": "https://github.com/OCA/server-backend",
-    "depends": ["base"],
+    "depends": [
+        "base",
+        # Ensure Channel autosubscription logic runs
+        # after Groups are assigned
+        "mail",
+    ],
     "data": [
         "security/ir.model.access.csv",
         "data/ir_cron.xml",
         "data/ir_module_category.xml",
         "views/role.xml",
         "views/user.xml",
-        "views/group.xml",
     ],
     "installable": True,
 }

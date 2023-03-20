@@ -1,9 +1,8 @@
-* Sébastien Alix <sebastien.alix@camptocamp.com>
+* Sébastien Alix <sebastien.alix@osiell.com>
 * Duc, Dao Dong <duc.dd@komit-consulting.com> (https://komit-consulting.com)
 * Jean-Charles Drubay <jc@komit-consulting.com> (https://komit-consulting.com)
-* Alan Ramos <alan.ramos@jarsa.com.mx> (https://www.jarsa.com.mx)
-* Harald Panten <harald.panten@sygel.es>
+* Pierrick Brun <pierrick.brun@akretion.com>
 * Kevin Khao <kevin.khao@akretion.com>
-* Guillem Casassas <guillem.casassas@forgeflow.com>
+* Andrius Laukavičius <andrius@focusate.eu> (http://focusate.eu)
 
 Do not contact contributors directly about support or help with technical issues.

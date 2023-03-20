@@ -6,19 +6,16 @@ class ResUsers(models.Model):
     _inherit = "res.users"
 
     def _get_default_profile(self):
-        return self.env.ref(
-            "base_user_role_profile.default_profile", raise_if_not_found=False
-        )
+        return self.env.ref("base_user_role_profile.default_profile")
 
     profile_id = fields.Many2one(
         "res.users.profile",
         "Current profile",
-        default=lambda self: self._get_default_profile(),
+        default=lambda self: self._get_default_profile,
     )
 
     profile_ids = fields.Many2many(
-        "res.users.profile",
-        string="Currently allowed profiles",
+        "res.users.profile", string="Currently allowed profiles",
     )
 
     def _get_action_root_menu(self):
@@ -37,7 +34,7 @@ class ResUsers(models.Model):
     @api.model
     def create(self, vals):
         new_record = super().create(vals)
-        if vals.get("role_line_ids"):
+        if vals.get("company_id") or vals.get("role_line_ids"):
             new_record.sudo()._compute_profile_ids()
         return new_record
 
@@ -47,19 +44,26 @@ class ResUsers(models.Model):
             self.sudo().write({"profile_id": vals["profile_id"]})
             del vals["profile_id"]
         res = super().write(vals)
-        if vals.get("profile_id") or vals.get("role_line_ids"):
+        if (
+            vals.get("company_id")
+            or vals.get("profile_id")
+            or vals.get("role_line_ids")
+        ):
             self.sudo()._compute_profile_ids()
         return res
 
-    def _get_enabled_roles(self):
-        res = super()._get_enabled_roles()
+    def _get_applicable_roles(self):
+        res = super()._get_applicable_roles()
         res = res.filtered(
-            lambda r: not r.profile_id or (r.profile_id.id == r.user_id.profile_id.id)
+            lambda r: not r.profile_id
+            or (r.profile_id.id == r.user_id.profile_id.id)
         )
         return res
 
     def _update_profile_id(self):
-        default_profile = self._get_default_profile()
+        default_profile = self.env.ref(
+            "base_user_role_profile.default_profile"
+        )
         if not self.profile_ids:
             if self.profile_id != default_profile:
                 self.profile_id = default_profile
@@ -69,7 +73,9 @@ class ResUsers(models.Model):
     def _compute_profile_ids(self):
         for rec in self:
             role_lines = rec.role_line_ids
-            profiles = role_lines.mapped("profile_id")
+            profiles = role_lines.filtered(
+                lambda r: r.company_id == rec.company_id
+            ).mapped("profile_id")
             rec.profile_ids = profiles
             # set defaults in case applicable profile changes
             rec._update_profile_id()

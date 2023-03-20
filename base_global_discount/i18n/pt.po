@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-08-17 12:07+0000\n"
+"PO-Revision-Date: 2021-01-05 14:44+0000\n"
 "Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
 "Language-Team: none\n"
 "Language: pt\n"
@@ -15,6 +15,11 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.3.2\n"
+
+#. module: base_global_discount
+#: model:ir.model.fields,help:base_global_discount.field_global_discount__discount_base
+msgid "Amount that will be discounted."
+msgstr ""
 
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__company_id
@@ -40,6 +45,11 @@ msgstr "Criado em"
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__discount
 msgid "Discount"
 msgstr "Desconto"
+
+#. module: base_global_discount
+#: model:ir.model.fields,field_description:base_global_discount.field_global_discount__discount_base
+msgid "Discount Base"
+msgstr ""
 
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__name
@@ -97,7 +107,7 @@ msgstr "Atualizado pela última vez em"
 #. module: base_global_discount
 #: model:res.groups,name:base_global_discount.group_global_discount
 msgid "Manage Global Discounts"
-msgstr "Gerir Descontos globais"
+msgstr "Gerir Descontos Globais"
 
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_res_partner__supplier_global_discount_ids
@@ -109,11 +119,11 @@ msgstr "Descontos Globais de Compras"
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_res_partner__supplier_global_discount_ids_readonly
 #: model:ir.model.fields,field_description:base_global_discount.field_res_users__supplier_global_discount_ids_readonly
-msgid "Purchase Global Discounts (readonly)"
-msgstr "Descontos Globais de Compras (apenas leitura)"
+msgid "Purchase Global Discounts (Readonly)"
+msgstr "Descontos Globais de Compras (Apenas leitura)"
 
 #. module: base_global_discount
-#: model:ir.model.fields.selection,name:base_global_discount.selection__global_discount__discount_scope__purchase
+#: selection:global.discount,discount_scope:0
 msgid "Purchases"
 msgstr "Compras"
 
@@ -127,11 +137,11 @@ msgstr "Descontos Globais de Vendas"
 #. module: base_global_discount
 #: model:ir.model.fields,field_description:base_global_discount.field_res_partner__customer_global_discount_ids_readonly
 #: model:ir.model.fields,field_description:base_global_discount.field_res_users__customer_global_discount_ids_readonly
-msgid "Sale Global Discounts (readonly)"
-msgstr "Descontos Globais de Vendas (apenas leitura)"
+msgid "Sale Global Discounts (Readonly)"
+msgstr "Descontos Globais de Vendas (Apenas leitura)"
 
 #. module: base_global_discount
-#: model:ir.model.fields.selection,name:base_global_discount.selection__global_discount__discount_scope__sale
+#: selection:global.discount,discount_scope:0
 msgid "Sales"
 msgstr "Vendas"
 
@@ -139,3 +149,13 @@ msgstr "Vendas"
 #: model:ir.model.fields,field_description:base_global_discount.field_global_discount__sequence
 msgid "Sequence"
 msgstr "Sequência"
+
+#. module: base_global_discount
+#: selection:global.discount,discount_base:0
+msgid "Subtotal"
+msgstr ""
+
+#. module: base_global_discount
+#: selection:global.discount,discount_base:0
+msgid "Total"
+msgstr ""

@@ -16,8 +16,9 @@ class IrHttp(models.AbstractModel):
         """
         result = super(IrHttp, self).session_info()
         if self.env.user.role_line_ids:
-            cids_str = request.httprequest.cookies.get("cids", str(self.env.company.id))
+            cids_str = request.httprequest.cookies.get(
+                "cids", str(self.env.user.company_id.id))
             cids = [int(cid) for cid in cids_str.split(",")]
-            # The first element of cids is the currently selected company
-            self.env.user.set_groups_from_roles(company_id=cids[0])
+            self.env.user._set_session_active_roles(cids)
+            self.env.user.set_groups_from_roles()
         return result

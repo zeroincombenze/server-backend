@@ -4,15 +4,17 @@
 
 {
     "name": "Server Actions - Navigate",
-    "version": "14.0.1.0.2",
-    "author": "GRAP, Odoo Community Association (OCA)",
+    "version": "12.0.1.0.0",
+    "author": "GRAP, " "Odoo Community Association (OCA)",
     "summary": "Navigate between any items of any Odoo Models",
     "category": "Tools",
-    "website": "https://github.com/OCA/server-backend",
+    "website": "https://github.com/OCA/server-ux",
     "license": "AGPL-3",
-    "depends": ["base_automation"],
-    "maintainers": ["legalsylvain", "ashishhirpara"],
-    "data": ["security/ir.model.access.csv", "views/view_ir_actions_server.xml"],
+    "depends": ["base"],
+    "maintainers": ["legalsylvain"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/view_ir_actions_server.xml",
+    ],
     "demo": ["demo/ir_actions_server.xml"],
-    "uninstall_hook": "uninstall_hook",
 }
