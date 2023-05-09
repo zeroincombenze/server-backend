@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-01 02:09+0000\n"
-"PO-Revision-Date: 2017-12-01 02:09+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2023-04-11 11:16+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: base_external_dbsource
 #: model:ir.model.fields,help:base_external_dbsource.field_base_external_dbsource__conn_string
@@ -38,11 +39,12 @@ msgid ""
 msgstr ""
 
 #. module: base_external_dbsource
+#. odoo-python
 #: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
 #, python-format
 msgid ""
-"\"%s\" method not found, check that all assets are installed for the %s "
-"connector type."
+"\"%(method)s\" method not found, check that all assets are installed for the "
+"%(connector)s connector type."
 msgstr ""
 
 #. module: base_external_dbsource
@@ -61,6 +63,11 @@ msgid "Client Key"
 msgstr ""
 
 #. module: base_external_dbsource
+#: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__company_id
+msgid "Company"
+msgstr ""
+
+#. module: base_external_dbsource
 #: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__conn_string_full
 #, fuzzy
 msgid "Conn String Full"
@@ -73,6 +80,7 @@ msgid "Connection string"
 msgstr "Niz povezave"
 
 #. module: base_external_dbsource
+#. odoo-python
 #: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
 #, python-format
 msgid ""
@@ -82,6 +90,7 @@ msgid ""
 msgstr ""
 
 #. module: base_external_dbsource
+#. odoo-python
 #: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
 #, python-format
 msgid ""
@@ -117,17 +126,12 @@ msgstr "Naziv podatkovne baze"
 #. module: base_external_dbsource
 #: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__display_name
 msgid "Display Name"
-msgstr "Prikazni naziv"
+msgstr "Prikazani naziv"
 
 #. module: base_external_dbsource
 #: model_terms:ir.ui.view,arch_db:base_external_dbsource.view_dbsource_form
 msgid "External DB Source"
 msgstr "Vir zunanje podatkovne baze"
-
-#. module: base_external_dbsource
-#: model_terms:ir.ui.view,arch_db:base_external_dbsource.view_dbsource_tree
-msgid "External DB Sources"
-msgstr "Viri zunanjih podatkovnih baz"
 
 #. module: base_external_dbsource
 #: model:ir.actions.act_window,name:base_external_dbsource.action_dbsource
@@ -188,7 +192,11 @@ msgid "Test Connection"
 msgstr "Test povezave"
 
 #. module: base_external_dbsource
+#. odoo-python
 #: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
 #, python-format
 msgid "query is a required argument"
 msgstr ""
+
+#~ msgid "External DB Sources"
+#~ msgstr "Viri zunanjih podatkovnih baz"

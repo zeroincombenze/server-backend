@@ -2,5 +2,9 @@
 * Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
 * Gervais Naoussi <gervaisnaoussi@gmail.com>
 * Dave Lasley <dave@laslabs.com>
-* Sergio Teruel <sergio.teruel@tecnativa.com> (https://wwww.tecnativa.com)
-* Jairo Llopis <jairo.llopis@tecnativa.com> (https://wwww.tecnativa.com)
+
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Sergio Teruel
+  * Jairo Llopis
+  * Andrea Cattalani (`Moduon <https://www.moduon.team/>`__)

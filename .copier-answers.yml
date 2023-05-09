@@ -11,11 +11,11 @@ github_enable_makepot: true
 github_enable_stale_action: true
 github_enforce_dev_status_compatibility: true
 include_wkhtmltopdf: false
-odoo_version: 14.0
+odoo_version: 16.0
 org_name: Odoo Community Association (OCA)
 org_slug: OCA
 rebel_module_groups: []
-repo_description: 'TODO: add repo description.'
+repo_description: Mainly base modules used by others
 repo_name: server-backend
 repo_slug: server-backend
 repo_website: https://github.com/OCA/server-backend

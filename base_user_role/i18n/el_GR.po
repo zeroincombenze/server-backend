@@ -95,8 +95,6 @@ msgid "Created on"
 msgstr "Δημιουργήθηκε στις"
 
 #. module: base_user_role
-#: model:ir.model.fields,field_description:base_user_role.field_res_groups__display_name
-#: model:ir.model.fields,field_description:base_user_role.field_res_users__display_name
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role__display_name
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role_line__display_name
 msgid "Display Name"
@@ -128,8 +126,6 @@ msgid "Groups"
 msgstr ""
 
 #. module: base_user_role
-#: model:ir.model.fields,field_description:base_user_role.field_res_groups__id
-#: model:ir.model.fields,field_description:base_user_role.field_res_users__id
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role__id
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role_line__id
 msgid "ID"
@@ -154,8 +150,6 @@ msgid ""
 msgstr ""
 
 #. module: base_user_role
-#: model:ir.model.fields,field_description:base_user_role.field_res_groups____last_update
-#: model:ir.model.fields,field_description:base_user_role.field_res_users____last_update
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role____last_update
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role_line____last_update
 msgid "Last Modified on"
@@ -271,11 +265,11 @@ msgstr ""
 #. module: base_user_role
 #: model:ir.actions.server,name:base_user_role.cron_update_users_ir_actions_server
 #: model:ir.cron,cron_name:base_user_role.cron_update_users
-#: model:ir.cron,name:base_user_role.cron_update_users
 msgid "Update user roles"
 msgstr ""
 
 #. module: base_user_role
+#: model:ir.model,name:base_user_role.model_res_users
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role_line__user_id
 msgid "User"
 msgstr ""
@@ -291,7 +285,6 @@ msgid "User roles"
 msgstr ""
 
 #. module: base_user_role
-#: model:ir.model,name:base_user_role.model_res_users
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role__users
 #: model_terms:ir.ui.view,arch_db:base_user_role.view_res_users_role_form
 msgid "Users"
@@ -314,6 +307,7 @@ msgid "Users of this group automatically inherit those groups"
 msgstr ""
 
 #. module: base_user_role
+#: model:ir.model.fields,field_description:base_user_role.field_res_groups__view_access
 #: model:ir.model.fields,field_description:base_user_role.field_res_users_role__view_access
 msgid "Views"
 msgstr "Προβολές"

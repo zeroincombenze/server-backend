@@ -52,14 +52,13 @@ msgstr ""
 "    "
 
 #. module: base_external_dbsource
+#. odoo-python
 #: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
 #, python-format
 msgid ""
-"\"%s\" method not found, check that all assets are installed for the %s "
-"connector type."
+"\"%(method)s\" method not found, check that all assets are installed for the "
+"%(connector)s connector type."
 msgstr ""
-"\"%s\" método não encontrado, verifique se todos os ativos estão instalados "
-"para o tipo de conector %s."
 
 #. module: base_external_dbsource
 #: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__ca_certs
@@ -77,6 +76,11 @@ msgid "Client Key"
 msgstr ""
 
 #. module: base_external_dbsource
+#: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__company_id
+msgid "Company"
+msgstr ""
+
+#. module: base_external_dbsource
 #: model:ir.model.fields,field_description:base_external_dbsource.field_base_external_dbsource__conn_string_full
 #, fuzzy
 msgid "Conn String Full"
@@ -89,6 +93,7 @@ msgid "Connection string"
 msgstr "Caracter de Conexão"
 
 #. module: base_external_dbsource
+#. odoo-python
 #: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
 #, python-format
 msgid ""
@@ -101,6 +106,7 @@ msgstr ""
 "%s"
 
 #. module: base_external_dbsource
+#. odoo-python
 #: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
 #, python-format
 msgid ""
@@ -144,11 +150,6 @@ msgstr "Nome para Mostrar"
 #: model_terms:ir.ui.view,arch_db:base_external_dbsource.view_dbsource_form
 msgid "External DB Source"
 msgstr "Fonte BD externo"
-
-#. module: base_external_dbsource
-#: model_terms:ir.ui.view,arch_db:base_external_dbsource.view_dbsource_tree
-msgid "External DB Sources"
-msgstr "Fontes BD externo"
 
 #. module: base_external_dbsource
 #: model:ir.actions.act_window,name:base_external_dbsource.action_dbsource
@@ -212,7 +213,19 @@ msgid "Test Connection"
 msgstr "Conexão Teste"
 
 #. module: base_external_dbsource
+#. odoo-python
 #: code:addons/base_external_dbsource/models/base_external_dbsource.py:0
 #, python-format
 msgid "query is a required argument"
 msgstr "Consulta é um argumento requerido"
+
+#, python-format
+#~ msgid ""
+#~ "\"%s\" method not found, check that all assets are installed for the %s "
+#~ "connector type."
+#~ msgstr ""
+#~ "\"%s\" método não encontrado, verifique se todos os ativos estão "
+#~ "instalados para o tipo de conector %s."
+
+#~ msgid "External DB Sources"
+#~ msgstr "Fontes BD externo"

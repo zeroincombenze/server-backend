@@ -4,10 +4,10 @@ import datetime
 
 from odoo import fields
 from odoo.exceptions import AccessError
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestUserRole(SavepointCase):
+class TestUserRole(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -136,9 +136,13 @@ class TestUserRole(SavepointCase):
         self.assertEqual(user_group_ids, role_group_ids)
 
     def test_role_unlink(self):
-        # Get role1 and role2 groups
-        role1_groups = self.role1_id.implied_ids | self.role1_id.group_id
-        role2_groups = self.role2_id.implied_ids | self.role2_id.group_id
+        # Get role1 groups
+        role1_group_ids = (
+            self.role1_id.implied_ids.ids + self.role1_id.trans_implied_ids.ids
+        )
+        role1_group_ids.append(self.role1_id.group_id.id)
+        role1_group_ids = sorted(set(role1_group_ids))
+
         # Configure the user with role1 and role2
         self.user_id.write(
             {
@@ -148,24 +152,23 @@ class TestUserRole(SavepointCase):
                 ]
             }
         )
-        # Check user has groups from role1 and role2
-        self.assertLessEqual(role1_groups, self.user_id.groups_id)
-        self.assertLessEqual(role2_groups, self.user_id.groups_id)
         # Remove role2
         self.role2_id.unlink()
-        # Check user has groups from only role1
-        self.assertLessEqual(role1_groups, self.user_id.groups_id)
-        self.assertFalse(role2_groups <= self.user_id.groups_id)
+        user_group_ids = sorted({group.id for group in self.user_id.groups_id})
+        self.assertEqual(user_group_ids, role1_group_ids)
         # Remove role1
         self.role1_id.unlink()
-        # Check user has no groups from role1 and role2
-        self.assertFalse(role1_groups <= self.user_id.groups_id)
-        self.assertFalse(role2_groups <= self.user_id.groups_id)
+        user_group_ids = sorted({group.id for group in self.user_id.groups_id})
+        self.assertEqual(user_group_ids, [])
 
     def test_role_line_unlink(self):
-        # Get role1 and role2 groups
-        role1_groups = self.role1_id.implied_ids | self.role1_id.group_id
-        role2_groups = self.role2_id.implied_ids | self.role2_id.group_id
+        # Get role1 groups
+        role1_group_ids = (
+            self.role1_id.implied_ids.ids + self.role1_id.trans_implied_ids.ids
+        )
+        role1_group_ids.append(self.role1_id.group_id.id)
+        role1_group_ids = sorted(set(role1_group_ids))
+
         # Configure the user with role1 and role2
         self.user_id.write(
             {
@@ -175,23 +178,18 @@ class TestUserRole(SavepointCase):
                 ]
             }
         )
-        # Check user has groups from role1 and role2
-        self.assertLessEqual(role1_groups, self.user_id.groups_id)
-        self.assertLessEqual(role2_groups, self.user_id.groups_id)
         # Remove role2 from the user
         self.user_id.role_line_ids.filtered(
             lambda l: l.role_id.id == self.role2_id.id
         ).unlink()
-        # Check user has groups from only role1
-        self.assertLessEqual(role1_groups, self.user_id.groups_id)
-        self.assertFalse(role2_groups <= self.user_id.groups_id)
+        user_group_ids = sorted({group.id for group in self.user_id.groups_id})
+        self.assertEqual(user_group_ids, role1_group_ids)
         # Remove role1 from the user
         self.user_id.role_line_ids.filtered(
             lambda l: l.role_id.id == self.role1_id.id
         ).unlink()
-        # Check user has no groups from role1 and role2
-        self.assertFalse(role1_groups <= self.user_id.groups_id)
-        self.assertFalse(role2_groups <= self.user_id.groups_id)
+        user_group_ids = sorted({group.id for group in self.user_id.groups_id})
+        self.assertEqual(user_group_ids, [])
 
     def test_default_user_roles(self):
         self.default_user.write(
@@ -207,11 +205,6 @@ class TestUserRole(SavepointCase):
         )
         roles = self.role_model.browse([self.role1_id.id, self.role2_id.id])
         self.assertEqual(user.role_ids, roles)
-
-    def test_update_role(self):
-        self.role1_id.write({"name": "foo", "comment": "FOO"})
-        self.assertEqual(self.role1_id.group_id.name, "foo")
-        self.assertEqual(self.role1_id.group_id.comment, "FOO")
 
     def test_role_multicompany(self):
         """Test AccessError when admin-like user accesses a role"""
